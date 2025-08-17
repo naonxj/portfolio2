@@ -48,6 +48,14 @@
   background-color: #e0e0e0;
   border-color: #bbb;
 }
+.project-text {
+  max-width: 800px;       /* 글 영역 최대 너비 */
+  margin: 20px auto;      /* 위아래 여백 20px, 좌우 중앙 정렬 */
+  color: #555;
+  line-height: 1.6;       /* 가독성 향상 */
+  font-size: 1rem;
+  text-align: center;     /* 필요하면 center, 왼쪽 정렬은 left */
+}
 
 /* 카드 갤러리 */
 .card-gallery {
@@ -174,8 +182,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
 <!-- 프로젝트 소개 -->
 <p style="margin:20px 0; text-align:center; color:#555;">
-본 프로젝트는 GNS3 환경에서 방화벽, VPN, NIDS, HIDS, 모니터링 툴을 통합 적용하여 다양한 네트워크 보안 시나리오를 실습하고 결과를 정리한 것입니다. 각 항목별로 구성도, 규칙, 실행 결과 캡처를 포함하고 있습니다.
+본 프로젝트는 GNS3 환경에서 방화벽, VPN, NIDS, HIDS, 모니터링 툴을 통합 적용하여 다양한 네트워크 보안 시나리오를 실습하고 결과를 정리한 것입니다.
+  각 항목별로 구성도, 규칙, 실행 결과 캡처를 포함하고 있습니다.
 </p>
+<img src="{{ '/assets/images/popo.PNG' | relative_url }}" alt="GNS3 상세 1">
+
+
 
 <!-- Firewall -->
 <h2>Firewall</h2>
@@ -256,12 +268,12 @@ OpenVPN 연결 설정 및 성공 확인
 
 <!-- snort/suricata rule -->
 <p style="margin:10px 0; color:#333;">
-Firewall 룰 예시: <br>
-1. Firefox3 → inside : http, telnet 접속<br>
-2. Webterm2(firefox5) → dmz : telnet 접속<br>
-3. PC1 → Webterm1(firefox4) : ping 가능<br>
-4. Webterm1(firefox4) → R1 : http, telnet 가능<br>
-5. Webterm2(firefox5) → PC1 : ping 가능
+Snort / Suricata Rule : <br>
+1. Win10 → OSSEC : http, ping 탐지<br>
+2. CentOS7 → Win10 : ping 탐지<br>
+3. HIDS → CentOS7 : /etc/passwd command injection 공격 탐지<br>
+4. Kali → Win10 : Rand Source Attack DDoS 탐지<br>
+5. Kali → CentOS7 : SYN Flag Scanning 탐지
 </p>
 <hr style="margin:40px 0; border:1px solid #ddd;">
 
