@@ -2,8 +2,8 @@ navbar_entries:
   - title: about
     url: about
 
-  - title: blog
-    url: blog
+  # - title: blog
+  #  url: https://velog.io/@seojin5112/posts
 
   - title: website
     url: https://www.abhinav.co
@@ -11,7 +11,7 @@ navbar_entries:
 project_entries:
   - title: Project 1
     url: overview-post
-    desc: This is an example project, configured in _data/home.yml
+    desc: Network Security Lab - Personal project
 
   - title: Project 2
     url: overview-post
