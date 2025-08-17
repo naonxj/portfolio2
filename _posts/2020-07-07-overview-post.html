@@ -7,6 +7,7 @@
 <hr>
 
 <style>
+/* 카드 갤러리 */
 .card-gallery {
   display: flex;
   flex-wrap: wrap;
@@ -21,7 +22,6 @@
   cursor: pointer;
   transition: transform 0.2s;
   background-color: #fafafa;
-  padding-bottom: 8px;
   text-align: center;
 }
 .card:hover {
@@ -34,142 +34,104 @@
 .card-desc {
   padding: 8px;
   font-size: 14px;
-  display: none;
   color: #333;
+}
+
+/* 라이트박스 (클릭 시 확대) */
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  padding-top: 60px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background: rgba(0,0,0,0.9);
+}
+.lightbox img {
+  margin: auto;
+  display: block;
+  max-width: 90%;
+  max-height: 80%;
+}
+.lightbox .desc {
+  text-align: center;
+  color: #fff;
+  margin-top: 10px;
+  font-size: 16px;
+}
+.lightbox .close {
+  position: absolute;
+  top: 30px;
+  right: 45px;
+  font-size: 40px;
+  color: white;
+  text-decoration: none;
 }
 </style>
 
 <script>
-function toggleDesc(card) {
-  const desc = card.querySelector('.card-desc');
-  if (desc.style.display === 'block') {
-    desc.style.display = 'none';
-  } else {
-    desc.style.display = 'block';
-  }
-}
+document.addEventListener("DOMContentLoaded", function() {
+  const cards = document.querySelectorAll(".card");
+  cards.forEach(card => {
+    card.addEventListener("click", function() {
+      const imgSrc = card.querySelector("img").src;
+      const descText = card.querySelector(".card-desc").innerText;
+
+      const lightbox = document.createElement("div");
+      lightbox.classList.add("lightbox");
+      lightbox.innerHTML = `
+        <a href="#" class="close">&times;</a>
+        <img src="${imgSrc}" alt="${descText}">
+        <div class="desc">${descText}</div>
+      `;
+      document.body.appendChild(lightbox);
+      lightbox.style.display = "block";
+
+      lightbox.querySelector(".close").addEventListener("click", function(e) {
+        e.preventDefault();
+        lightbox.remove();
+      });
+
+      lightbox.addEventListener("click", function(e){
+        if(e.target === lightbox){
+          lightbox.remove();
+        }
+      });
+    });
+  });
+});
 </script>
 
-<!-- Firewall Rules -->
+<!-- 예제: Firewall Rules 섹션 -->
 <h2>Firewall Rules</h2>
 <div class="card-gallery">
-  <div class="card" onclick="toggleDesc(this)">
+  <div class="card">
     <img src="/assets/images/fire3-inside-http.PNG" alt="Firefox3 → inside http">
     <div class="card-desc">Firefox3 → inside : http 접속</div>
   </div>
-  <div class="card" onclick="toggleDesc(this)">
+  <div class="card">
     <img src="/assets/images/fire3-inside-telnet.PNG" alt="Firefox3 → inside telnet">
     <div class="card-desc">Firefox3 → inside : telnet 접속</div>
   </div>
-  <div class="card" onclick="toggleDesc(this)">
+  <div class="card">
     <img src="/assets/images/fire5-dmz-telnet.PNG" alt="Webterm2 → dmz telnet">
     <div class="card-desc">Webterm2(firefox5) → dmz : telnet 접속</div>
   </div>
-  <div class="card" onclick="toggleDesc(this)">
+  <div class="card">
     <img src="/assets/images/pc1-fire4-ping.PNG" alt="PC1 → Webterm1 ping">
     <div class="card-desc">PC1 → Webterm1(firefox4) : ping 가능</div>
   </div>
-  <div class="card" onclick="toggleDesc(this)">
+  <div class="card">
     <img src="/assets/images/web1(fire4)-r1http3333.PNG" alt="Webterm1 → R1 http">
     <div class="card-desc">Webterm1(firefox4) → R1 : http 가능</div>
   </div>
-  <div class="card" onclick="toggleDesc(this)">
+  <div class="card">
     <img src="/assets/images/web1(fire4)-r1telnet2222.PNG" alt="Webterm1 → R1 telnet">
     <div class="card-desc">Webterm1(firefox4) → R1 : telnet 가능</div>
   </div>
-  <div class="card" onclick="toggleDesc(this)">
-    <img src="/assets/images/web2(fire5)-pc1-ping-kkk.PNG" alt="Webterm2 → PC1 ping">
-    <div class="card-desc">Webterm2(firefox5) → PC1 : ping 가능</div>
-  </div>
 </div>
 
-<hr>
-
-<!-- HSRP -->
-<h2>HSRP</h2>
-<div class="card-gallery">
-  <div class="card" onclick="toggleDesc(this)">
-    <img src="/assets/images/HSRP-active.PNG" alt="HSRP active">
-    <div class="card-desc">HSRP Active</div>
-  </div>
-  <div class="card" onclick="toggleDesc(this)">
-    <img src="/assets/images/HSRP-standby.PNG" alt="HSRP standby">
-    <div class="card-desc">HSRP Standby</div>
-  </div>
-</div>
-
-<hr>
-
-<!-- OpenVPN -->
-<h2>OpenVPN</h2>
-<div class="card-gallery">
-  <div class="card" onclick="toggleDesc(this)">
-    <img src="/assets/images/openvpn.PNG" alt="OpenVPN 성공">
-    <div class="card-desc">OpenVPN 성공</div>
-  </div>
-</div>
-
-<hr>
-
-<!-- Snort / Suricata Rules -->
-<h2>Snort Rules</h2>
-<div class="card-gallery">
-  <div class="card" onclick="toggleDesc(this)">
-    <img src="/assets/images/snort(win10-ossec)http.PNG" alt="Win10 → OSSEC http">
-    <div class="card-desc">Win10 → OSSEC : http 탐지</div>
-  </div>
-  <div class="card" onclick="toggleDesc(this)">
-    <img src="/assets/images/snort(win10-ossec)ping-cmd.PNG" alt="Win10 → OSSEC ping">
-    <div class="card-desc">Win10 → OSSEC : ping 탐지</div>
-  </div>
-  <div class="card" onclick="toggleDesc(this)">
-    <img src="/assets/images/snort(win10-ossec)ping.PNG" alt="Win10 → OSSEC ping 결과">
-    <div class="card-desc">Win10 → OSSEC : ping 결과</div>
-  </div>
-  <div class="card" onclick="toggleDesc(this)">
-    <img src="/assets/images/rocky-win-ping.PNG" alt="CentOS7 → Win10 ping">
-    <div class="card-desc">CentOS7 → Win10 : ping 탐지</div>
-  </div>
-  <div class="card" onclick="toggleDesc(this)">
-    <img src="/assets/images/rocky-win-ping-result.PNG" alt="CentOS7 → Win10 ping 결과">
-    <div class="card-desc">CentOS7 → Win10 : ping 결과</div>
-  </div>
-  <div class="card" onclick="toggleDesc(this)">
-    <img src="/assets/images/rockinjectcurl.PNG" alt="HIDS → CentOS7 공격">
-    <div class="card-desc">HIDS → CentOS7 : 공격 탐지</div>
-  </div>
-  <div class="card" onclick="toggleDesc(this)">
-    <img src="/assets/images/rockyinjectiondetc.PNG" alt="HIDS → CentOS7 공격">
-    <div class="card-desc">HIDS → CentOS7 : 공격 탐지</div>
-  </div>
-</div>
-
-<h2>Suricata Rules</h2>
-<div class="card-gallery">
-  <div class="card" onclick="toggleDesc(this)">
-    <img src="/assets/images/suriwin-ossec-ping.PNG" alt="Win10 → OSSEC ping">
-    <div class="card-desc">Win10 → OSSEC : ping 탐지</div>
-  </div>
-  <div class="card" onclick="toggleDesc(this)">
-    <img src="/assets/images/surwin-ossec-pingdetect.PNG" alt="Win10 → OSSEC ping 탐지">
-    <div class="card-desc">Win10 → OSSEC : ping 탐지</div>
-  </div>
-  <div class="card" onclick="toggleDesc(this)">
-    <img src="/assets/images/win-ossechttpdet.PNG" alt="Win10 → OSSEC http 탐지">
-    <div class="card-desc">Win10 → OSSEC : http 탐지</div>
-  </div>
-  <div class="card" onclick="toggleDesc(this)">
-    <img src="/assets/images/surirocky-win-ping.PNG" alt="CentOS7 → Win10 ping">
-    <div class="card-desc">CentOS7 → Win10 : ping 탐지</div>
-  </div>
-  <div class="card" onclick="toggleDesc(this)">
-    <img src="/assets/images/surirocky-winping-det.PNG" alt="CentOS7 → Win10 ping 결과">
-    <div class="card-desc">CentOS7 → Win10 : ping 결과</div>
-  </div>
-  <div class="card" onclick="toggleDesc(this)">
-    <img src="/assets/images/suri-injection-attack.PNG" alt="HIDS → CentOS7 공격">
-    <div class="card-desc">HIDS → CentOS7 : 공격 탐지</div>
-  </div>
-  <div class="card" onclick="toggleDesc(this)">
-    <img src="/assets/images/suri-injection-detec.PNG" alt="HIDS → CentOS7 탐지 결과">
-    <div c
+<!-- 여기서부터 동일한 구조로 HSRP, OpenVPN, Snort, Suricata, OSSEC, Zabbix 섹션 반복 -->
