@@ -1,23 +1,3 @@
-<!-- Header -->
-<header class="project-header">
-  <div class="header-content">
-    <h1>NETWORK SECURITY PROJECT</h1>
-    <p>personal project</p>
-    <p class="date">Published on Aug 11, 2025</p>
-    <div class="tags">
-      <span>GNS3</span>
-      <span>pfSense</span>
-      <span>Rocky</span>
-      <span>Ubuntu</span>
-      <span>kali</span>
-      <span>OSSEC</span>
-      <span>ZABBIX</span>
-    </div>
-  </div>
-</header>
-
-
-<hr>
 
 <style>
   /* Header 스타일 */
@@ -174,8 +154,40 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 </script>
 
+<!-- Header -->
+<header class="project-header">
+  <div class="header-content">
+    <h1>NETWORK SECURITY PROJECT</h1>
+    <p>personal project</p>
+    <p class="date">Published on Aug 11, 2025</p>
+    <div class="tags">
+      <span>GNS3</span>
+      <span>pfSense</span>
+      <span>Rocky</span>
+      <span>Ubuntu</span>
+      <span>kali</span>
+      <span>OSSEC</span>
+      <span>ZABBIX</span>
+    </div>
+  </div>
+</header>
+
+<!-- 프로젝트 소개 -->
+<p style="margin:20px 0; text-align:center; color:#555;">
+본 프로젝트는 GNS3 환경에서 방화벽, VPN, NIDS, HIDS, 모니터링 툴을 통합 적용하여 다양한 네트워크 보안 시나리오를 실습하고 결과를 정리한 것입니다. 각 항목별로 구성도, 규칙, 실행 결과 캡처를 포함하고 있습니다.
+</p>
+
 <!-- Firewall -->
 <h2>Firewall</h2>
+<p style="margin:10px 0; color:#333;">
+Firewall 룰 예시: <br>
+1. Firefox3 → inside : http, telnet 접속<br>
+2. Webterm2(firefox5) → dmz : telnet 접속<br>
+3. PC1 → Webterm1(firefox4) : ping 가능<br>
+4. Webterm1(firefox4) → R1 : http, telnet 가능<br>
+5. Webterm2(firefox5) → PC1 : ping 가능
+</p>
+
 <div class="card-gallery">
   <div class="card">
     <img src="{{ '/assets/images/fire3-inside-http.PNG' | relative_url }}" alt="Firefox3 → inside http">
@@ -207,8 +219,13 @@ document.addEventListener("DOMContentLoaded", function() {
   </div>
 </div>
 
+<hr style="margin:40px 0; border:1px solid #ddd;">
+
 <!-- HSRP -->
 <h2>HSRP</h2>
+<p style="margin:10px 0; color:#333;">
+HSRP 구성 및 Active/Standby 상태 확인
+</p>
 <div class="card-gallery">
   <div class="card">
     <img src="{{ '/assets/images/HSRP-active.PNG' | relative_url }}" alt="HSRP active">
@@ -220,14 +237,33 @@ document.addEventListener("DOMContentLoaded", function() {
   </div>
 </div>
 
+<hr style="margin:40px 0; border:1px solid #ddd;">
+
+
 <!-- OpenVPN -->
 <h2>OpenVPN</h2>
+<p style="margin:10px 0; color:#333;">
+OpenVPN 연결 설정 및 성공 확인
+</p>
 <div class="card-gallery">
   <div class="card">
     <img src="{{ '/assets/images/openvpn.PNG' | relative_url }}" alt="OpenVPN 성공">
     <div class="card-desc">OpenVPN 연결 성공</div>
   </div>
 </div>
+
+<hr style="margin:40px 0; border:1px solid #ddd;">
+
+<!-- snort/suricata rule -->
+<p style="margin:10px 0; color:#333;">
+Firewall 룰 예시: <br>
+1. Firefox3 → inside : http, telnet 접속<br>
+2. Webterm2(firefox5) → dmz : telnet 접속<br>
+3. PC1 → Webterm1(firefox4) : ping 가능<br>
+4. Webterm1(firefox4) → R1 : http, telnet 가능<br>
+5. Webterm2(firefox5) → PC1 : ping 가능
+</p>
+<hr style="margin:40px 0; border:1px solid #ddd;">
 
 <!-- Snort -->
 <h2>Snort</h2>
@@ -258,6 +294,9 @@ document.addEventListener("DOMContentLoaded", function() {
   </div>
 </div>
 
+<hr style="margin:40px 0; border:1px solid #ddd;">
+
+
 <!-- Suricata -->
 <h2>Suricata</h2>
 <div class="card-gallery">
@@ -287,6 +326,9 @@ document.addEventListener("DOMContentLoaded", function() {
   </div>
 </div>
 
+<hr style="margin:40px 0; border:1px solid #ddd;">
+
+
 <!-- OSSEC -->
 <h2>OSSEC</h2>
 <div class="card-gallery">
@@ -303,6 +345,9 @@ document.addEventListener("DOMContentLoaded", function() {
     <div class="card-desc">Windows</div>
   </div>
 </div>
+
+<hr style="margin:40px 0; border:1px solid #ddd;">
+
 
 <!-- Zabbix -->
 <h2>Zabbix</h2>
