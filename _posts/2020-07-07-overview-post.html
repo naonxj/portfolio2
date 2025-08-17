@@ -105,33 +105,145 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 </script>
 
-<!-- 예제: Firewall Rules 섹션 -->
-<h2>Firewall Rules</h2>
+<!-- Firewall -->
+<h2>Firewall</h2>
 <div class="card-gallery">
   <div class="card">
-    <img src="/assets/images/fire3-inside-http.PNG" alt="Firefox3 → inside http">
+    <img src="{{ '/assets/images/fire3-inside-http.PNG' | relative_url }}" alt="Firefox3 → inside http">
     <div class="card-desc">Firefox3 → inside : http 접속</div>
   </div>
   <div class="card">
-    <img src="/assets/images/fire3-inside-telnet.PNG" alt="Firefox3 → inside telnet">
+    <img src="{{ '/assets/images/fire3-inside-telnet.PNG' | relative_url }}" alt="Firefox3 → inside telnet">
     <div class="card-desc">Firefox3 → inside : telnet 접속</div>
   </div>
   <div class="card">
-    <img src="/assets/images/fire5-dmz-telnet.PNG" alt="Webterm2 → dmz telnet">
+    <img src="{{ '/assets/images/fire5-dmz-telnet.PNG' | relative_url }}" alt="Webterm2 → dmz telnet">
     <div class="card-desc">Webterm2(firefox5) → dmz : telnet 접속</div>
   </div>
   <div class="card">
-    <img src="/assets/images/pc1-fire4-ping.PNG" alt="PC1 → Webterm1 ping">
+    <img src="{{ '/assets/images/pc1-fire4-ping.PNG' | relative_url }}" alt="PC1 → Webterm1 ping">
     <div class="card-desc">PC1 → Webterm1(firefox4) : ping 가능</div>
   </div>
   <div class="card">
-    <img src="/assets/images/web1(fire4)-r1http3333.PNG" alt="Webterm1 → R1 http">
+    <img src="{{ '/assets/images/web1(fire4)-r1http3333.PNG' | relative_url }}" alt="Webterm1 → R1 http">
     <div class="card-desc">Webterm1(firefox4) → R1 : http 가능</div>
   </div>
   <div class="card">
-    <img src="/assets/images/web1(fire4)-r1telnet2222.PNG" alt="Webterm1 → R1 telnet">
+    <img src="{{ '/assets/images/web1(fire4)-r1telnet2222.PNG' | relative_url }}" alt="Webterm1 → R1 telnet">
     <div class="card-desc">Webterm1(firefox4) → R1 : telnet 가능</div>
+  </div>
+  <div class="card">
+    <img src="{{ '/assets/images/web2(fire5)-pc1-ping-kkk.PNG' | relative_url }}" alt="Webterm2 → PC1 ping">
+    <div class="card-desc">Webterm2(firefox5) → PC1 : ping 가능</div>
   </div>
 </div>
 
-<!-- 여기서부터 동일한 구조로 HSRP, OpenVPN, Snort, Suricata, OSSEC, Zabbix 섹션 반복 -->
+<!-- HSRP -->
+<h2>HSRP</h2>
+<div class="card-gallery">
+  <div class="card">
+    <img src="{{ '/assets/images/HSRP-active.PNG' | relative_url }}" alt="HSRP active">
+    <div class="card-desc">Active</div>
+  </div>
+  <div class="card">
+    <img src="{{ '/assets/images/HSRP-standby.PNG' | relative_url }}" alt="HSRP standby">
+    <div class="card-desc">Standby</div>
+  </div>
+</div>
+
+<!-- OpenVPN -->
+<h2>OpenVPN</h2>
+<div class="card-gallery">
+  <div class="card">
+    <img src="{{ '/assets/images/openvpn.PNG' | relative_url }}" alt="OpenVPN 성공">
+    <div class="card-desc">OpenVPN 연결 성공</div>
+  </div>
+</div>
+
+<!-- Snort -->
+<h2>Snort</h2>
+<div class="card-gallery">
+  <div class="card">
+    <img src="{{ '/assets/images/snort(win10-ossec)http.PNG' | relative_url }}" alt="Win10 → OSSEC http">
+    <div class="card-desc">Win10 → OSSEC : http 탐지</div>
+  </div>
+  <div class="card">
+    <img src="{{ '/assets/images/snort(win10-ossec)ping.PNG' | relative_url }}" alt="Win10 → OSSEC ping">
+    <div class="card-desc">Win10 → OSSEC : ping 탐지</div>
+  </div>
+  <div class="card">
+    <img src="{{ '/assets/images/rocky-win-ping.PNG' | relative_url }}" alt="CentOS7 → Win10 ping">
+    <div class="card-desc">CentOS7 → Win10 : ping 탐지</div>
+  </div>
+  <div class="card">
+    <img src="{{ '/assets/images/rockinjectcurl.PNG' | relative_url }}" alt="HIDS → CentOS7 공격">
+    <div class="card-desc">HIDS → CentOS7 : 공격 탐지</div>
+  </div>
+  <div class="card">
+    <img src="{{ '/assets/images/random-attack.PNG' | relative_url }}" alt="Kali → Win10 DDoS">
+    <div class="card-desc">Kali → Win10 : Rand Source Attack DDoS 탐지</div>
+  </div>
+  <div class="card">
+    <img src="{{ '/assets/images/synflagattack.PNG' | relative_url }}" alt="Kali → CentOS7 SYN Flag">
+    <div class="card-desc">Kali → CentOS7 : SYN Flag Scanning 탐지</div>
+  </div>
+</div>
+
+<!-- Suricata -->
+<h2>Suricata</h2>
+<div class="card-gallery">
+  <div class="card">
+    <img src="{{ '/assets/images/suriwin-ossec-ping.PNG' | relative_url }}" alt="Win10 → OSSEC ping">
+    <div class="card-desc">Win10 → OSSEC : ping 탐지</div>
+  </div>
+  <div class="card">
+    <img src="{{ '/assets/images/win-ossechttpdet.PNG' | relative_url }}" alt="Win10 → OSSEC http">
+    <div class="card-desc">Win10 → OSSEC : http 탐지</div>
+  </div>
+  <div class="card">
+    <img src="{{ '/assets/images/surirocky-win-ping.PNG' | relative_url }}" alt="CentOS7 → Win10 ping">
+    <div class="card-desc">CentOS7 → Win10 : ping 탐지</div>
+  </div>
+  <div class="card">
+    <img src="{{ '/assets/images/suri-injection-attack.PNG' | relative_url }}" alt="HIDS → CentOS7 공격">
+    <div class="card-desc">HIDS → CentOS7 : 공격 탐지</div>
+  </div>
+  <div class="card">
+    <img src="{{ '/assets/images/surikali-win-randattack.PNG' | relative_url }}" alt="Kali → Win10 DDoS">
+    <div class="card-desc">Kali → Win10 : DDoS 탐지</div>
+  </div>
+  <div class="card">
+    <img src="{{ '/assets/images/suri-kali-rocky-syn-attack-det.PNG' | relative_url }}" alt="Kali → CentOS7 SYN Flag">
+    <div class="card-desc">Kali → CentOS7 : SYN Flag Scanning 탐지</div>
+  </div>
+</div>
+
+<!-- OSSEC -->
+<h2>OSSEC</h2>
+<div class="card-gallery">
+  <div class="card">
+    <img src="{{ '/assets/images/ossecserver.png' | relative_url }}" alt="OSSEC Server">
+    <div class="card-desc">Server</div>
+  </div>
+  <div class="card">
+    <img src="{{ '/assets/images/ossecagent.png' | relative_url }}" alt="OSSEC Agent">
+    <div class="card-desc">Agent</div>
+  </div>
+  <div class="card">
+    <img src="{{ '/assets/images/windowossec1.PNG' | relative_url }}" alt="OSSEC Windows">
+    <div class="card-desc">Windows</div>
+  </div>
+</div>
+
+<!-- Zabbix -->
+<h2>Zabbix</h2>
+<div class="card-gallery">
+  <div class="card">
+    <img src="{{ '/assets/images/zabbixhome.PNG' | relative_url }}" alt="Zabbix Server">
+    <div class="card-desc">Server</div>
+  </div>
+  <div class="card">
+    <img src="{{ '/assets/images/zabbixwindowre.PNG' | relative_url }}" alt="Zabbix Agent Windows">
+    <div class="card-desc">Agent / Windows</div>
+  </div>
+</div>
