@@ -13,9 +13,14 @@
   flex-wrap: wrap;
   gap: 16px;
   margin-top: 16px;
+  justify-content: center; /* 가운데 정렬 */
 }
+
+/* 카드 기본 크기 고정 + 최대 300px */
 .card {
-  flex: 1 1 calc(33.333% - 16px);
+  flex: 1 1 calc(33% - 16px); /* 기본 3개 */
+  max-width: 300px;            /* 최대 크기 제한 */
+  min-width: 180px;            /* 최소 크기 제한 */
   border: 1px solid #ccc;
   border-radius: 8px;
   overflow: hidden;
@@ -30,12 +35,14 @@
 .card img {
   width: 100%;
   display: block;
+  height: auto; /* 비율 유지 */
 }
 .card-desc {
   padding: 8px;
   font-size: 14px;
   color: #333;
 }
+
 
 /* 라이트박스 (클릭 시 확대) */
 .lightbox {
